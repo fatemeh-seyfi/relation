@@ -1,6 +1,6 @@
 FILE=$1
-if [[ $FILE != "images" && $FILE != "images2" ]]; then
-    echo "Available datasets are:images , images2"
+if [[ $FILE != "proposals.h5" ]]; then
+    echo "Available datasets are:proposals.h5 "
     exit 1
 fi
 if [[ $FILE == "cityscapes" ]]; then
@@ -9,11 +9,11 @@ if [[ $FILE == "cityscapes" ]]; then
     exit 1
 fi
 echo "Specified [$FILE]"
-URL=https://cs.stanford.edu/people/rak248/VG_100K_2/$FILE.zip
-ZIP_FILE=./data/vg/$FILE.zip
-TARGET_DIR=./data/vg/$FILE/
+URL=https://http://svl.stanford.edu/projects/scene-graph/dataset/$FILE.zip
+ZIP_FILE=./data/stanford_filtered/$FILE.zip
+TARGET_DIR=./data/stanford_filtered/$FILE/
 wget -N $URL -O $ZIP_FILE
 mkdir $TARGET_DIR
-unzip $ZIP_FILE -d ./data/vg/
+unzip $ZIP_FILE -d ./data/stanford_filtered/
 rm $ZIP_FILE
 

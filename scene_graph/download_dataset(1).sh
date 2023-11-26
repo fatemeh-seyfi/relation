@@ -10,10 +10,10 @@ if [[ $FILE == "cityscapes" ]]; then
 fi
 echo "Specified [$FILE]"
 URL=https://cs.stanford.edu/people/rak248/VG_100K_2/$FILE.zip
-ZIP_FILE=./data/vg/$FILE.zip
-TARGET_DIR=./data/vg/$FILE/
+ZIP_FILE=./data/stanford_filtered/$FILE.zip
+TARGET_DIR=./data/stanford_filtered/$FILE/
 wget -N $URL -O $ZIP_FILE
 mkdir $TARGET_DIR
-unzip $ZIP_FILE -d ./data/vg/
+unzip $ZIP_FILE -d ./data/stanford_filtered/
 rm $ZIP_FILE
 
